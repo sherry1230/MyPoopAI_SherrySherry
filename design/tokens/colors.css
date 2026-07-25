@@ -1,0 +1,89 @@
+/* MyPoopAI Color System v0.4 — 자동 생성. design/tokens/colors.json 이 원본 */
+
+:root {
+  /* semantic */
+  --color-bg-base: #F4F0E6; /* 페이퍼 아이보리 · 앱/웹 기본 배경 */
+  --color-bg-card: #E9E3D4; /* 빈티지 크림 · 카드 · 박스 배경 */
+  --color-border-default: #D6CFBF; /* 웜 그레이지 · 구분선 · 비활성 UI */
+  --color-text-placeholder: #A79E8F; /* 더스티 토프 · 플레이스홀더 */
+  --color-text-secondary: #6E655A; /* 스모크 브라운 · 아이콘 · 서브 텍스트 */
+  --color-text-primary: #3B362F; /* 잉크 차콜 · 본문 텍스트 */
+  --color-text-heading: #221F1A; /* 필름 블랙 · 키컬러 · 헤드라인 · 로고 */
+  --color-accent-star: #E3C87E; /* 페이디드 골드 · 별점 채움색 */
+  --color-accent-badge: #C9A227; /* 레트로 머스터드 · 하이라이트 · 뱃지 */
+  --color-status-good: #7C7B45; /* 올리브 500 · 양호 (별점 4↑) */
+  --color-status-caution: #C1704A; /* 번트 오렌지 · 주의 (2.5~3.5) */
+  --color-status-warning: #8C4A3C; /* 브릭 레드브라운 · 경고 (2↓) · 알림 */
+  --color-mode-adult: #7590A2; /* 데님 400 · 성인 모드 포인트 */
+  --color-mode-baby: #BE8A8A; /* 로즈 400 · 베이비 모드 포인트 */
+  --color-action-link: #576F82; /* 데님 500 · 링크 · 액션 */
+  --color-state-focus: #9D7F9B; /* 플럼 400 · 선택 · 포커스 */
+
+  /* ramps */
+  --color-gray-100: #F5F4F1;
+  --color-gray-200: #E6E4DF;
+  --color-gray-300: #CFCCC5;
+  --color-gray-400: #B3B0A8;
+  --color-gray-500: #918E86;
+  --color-gray-600: #6B6862;
+  --color-gray-700: #45433E;
+  --color-gray-800: #232220;
+  --color-sepia-100: #F0E8D9;
+  --color-sepia-200: #E0D3BB;
+  --color-sepia-300: #C9B694;
+  --color-sepia-400: #AD9670;
+  --color-sepia-500: #8C7754;
+  --color-sepia-600: #6B5A3E;
+  --color-sepia-700: #4C402C;
+  --color-sepia-800: #32291C;
+  --color-rose-100: #F4E6E4;
+  --color-rose-200: #E5C9C6;
+  --color-rose-300: #D3A9A7;
+  --color-rose-400: #BE8A8A;
+  --color-rose-500: #A06B6E;
+  --color-rose-600: #7E5254;
+  --color-olive-100: #EFEDDA;
+  --color-olive-200: #D8D4B0;
+  --color-olive-300: #BBB786;
+  --color-olive-400: #9C9A60;
+  --color-olive-500: #7C7B45;
+  --color-olive-600: #5D5C33;
+  --color-denim-100: #E4E9EC;
+  --color-denim-200: #C0CDD6;
+  --color-denim-300: #9AAEBC;
+  --color-denim-400: #7590A2;
+  --color-denim-500: #576F82;
+  --color-denim-600: #3F5264;
+  --color-plum-100: #ECE4EC;
+  --color-plum-200: #D5C4D5;
+  --color-plum-300: #B99FB8;
+  --color-plum-400: #9D7F9B;
+  --color-plum-500: #7D5A78;
+  --color-plum-600: #5C4058;
+
+  /* character */
+  --color-cat-cream-body: #ECE2CE; /* 크림냥 바디 */
+  --color-cat-cream-shade: #C8B89B; /* 크림냥 셰이드 */
+  --color-cat-gray-body: #9A9288; /* 그레이냥 바디 */
+  --color-cat-gray-shade: #5F5A52; /* 그레이냥 셰이드 */
+  --color-cat-black-body: #2E2B27; /* 블랙냥 바디 */
+  --color-cat-black-highlight: #4A443C; /* 블랙냥 하이라이트 */
+  --color-cat-nose: #D3A9A7; /* 코 · 발바닥 */
+  --color-cat-nose-mono: #7A6A55; /* 코 · 발바닥 모노톤 */
+  --color-cat-line: #16140F; /* 눈동자 · 외곽선 */
+  --color-cat-white: #F7F3EA; /* 수염 · 양말 (웜화이트) */
+
+  /* spacing / radius */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --radius-chip: 8px;
+  --radius-card: 12px;
+  --radius-modal: 16px;
+  --radius-pill: 999px;
+}

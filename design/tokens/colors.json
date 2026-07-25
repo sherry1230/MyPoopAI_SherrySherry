@@ -1,0 +1,188 @@
+{
+  "$schema": "https://design-tokens.org",
+  "version": "0.4.0",
+  "name": "MyPoopAI Color System",
+  "semantic": {
+    "bg.base": {
+      "value": "#F4F0E6",
+      "name": "페이퍼 아이보리",
+      "usage": "앱/웹 기본 배경"
+    },
+    "bg.card": {
+      "value": "#E9E3D4",
+      "name": "빈티지 크림",
+      "usage": "카드 · 박스 배경"
+    },
+    "border.default": {
+      "value": "#D6CFBF",
+      "name": "웜 그레이지",
+      "usage": "구분선 · 비활성 UI"
+    },
+    "text.placeholder": {
+      "value": "#A79E8F",
+      "name": "더스티 토프",
+      "usage": "플레이스홀더"
+    },
+    "text.secondary": {
+      "value": "#6E655A",
+      "name": "스모크 브라운",
+      "usage": "아이콘 · 서브 텍스트"
+    },
+    "text.primary": {
+      "value": "#3B362F",
+      "name": "잉크 차콜",
+      "usage": "본문 텍스트"
+    },
+    "text.heading": {
+      "value": "#221F1A",
+      "name": "필름 블랙",
+      "usage": "키컬러 · 헤드라인 · 로고"
+    },
+    "accent.star": {
+      "value": "#E3C87E",
+      "name": "페이디드 골드",
+      "usage": "별점 채움색"
+    },
+    "accent.badge": {
+      "value": "#C9A227",
+      "name": "레트로 머스터드",
+      "usage": "하이라이트 · 뱃지"
+    },
+    "status.good": {
+      "value": "#7C7B45",
+      "name": "올리브 500",
+      "usage": "양호 (별점 4↑)"
+    },
+    "status.caution": {
+      "value": "#C1704A",
+      "name": "번트 오렌지",
+      "usage": "주의 (2.5~3.5)"
+    },
+    "status.warning": {
+      "value": "#8C4A3C",
+      "name": "브릭 레드브라운",
+      "usage": "경고 (2↓) · 알림"
+    },
+    "mode.adult": {
+      "value": "#7590A2",
+      "name": "데님 400",
+      "usage": "성인 모드 포인트"
+    },
+    "mode.baby": {
+      "value": "#BE8A8A",
+      "name": "로즈 400",
+      "usage": "베이비 모드 포인트"
+    },
+    "action.link": {
+      "value": "#576F82",
+      "name": "데님 500",
+      "usage": "링크 · 액션"
+    },
+    "state.focus": {
+      "value": "#9D7F9B",
+      "name": "플럼 400",
+      "usage": "선택 · 포커스"
+    }
+  },
+  "ramps": {
+    "gray": {
+      "100": "#F5F4F1",
+      "200": "#E6E4DF",
+      "300": "#CFCCC5",
+      "400": "#B3B0A8",
+      "500": "#918E86",
+      "600": "#6B6862",
+      "700": "#45433E",
+      "800": "#232220"
+    },
+    "sepia": {
+      "100": "#F0E8D9",
+      "200": "#E0D3BB",
+      "300": "#C9B694",
+      "400": "#AD9670",
+      "500": "#8C7754",
+      "600": "#6B5A3E",
+      "700": "#4C402C",
+      "800": "#32291C"
+    },
+    "rose": {
+      "100": "#F4E6E4",
+      "200": "#E5C9C6",
+      "300": "#D3A9A7",
+      "400": "#BE8A8A",
+      "500": "#A06B6E",
+      "600": "#7E5254"
+    },
+    "olive": {
+      "100": "#EFEDDA",
+      "200": "#D8D4B0",
+      "300": "#BBB786",
+      "400": "#9C9A60",
+      "500": "#7C7B45",
+      "600": "#5D5C33"
+    },
+    "denim": {
+      "100": "#E4E9EC",
+      "200": "#C0CDD6",
+      "300": "#9AAEBC",
+      "400": "#7590A2",
+      "500": "#576F82",
+      "600": "#3F5264"
+    },
+    "plum": {
+      "100": "#ECE4EC",
+      "200": "#D5C4D5",
+      "300": "#B99FB8",
+      "400": "#9D7F9B",
+      "500": "#7D5A78",
+      "600": "#5C4058"
+    }
+  },
+  "character": {
+    "cream.body": {
+      "value": "#ECE2CE",
+      "name": "크림냥 바디"
+    },
+    "cream.shade": {
+      "value": "#C8B89B",
+      "name": "크림냥 셰이드"
+    },
+    "gray.body": {
+      "value": "#9A9288",
+      "name": "그레이냥 바디"
+    },
+    "gray.shade": {
+      "value": "#5F5A52",
+      "name": "그레이냥 셰이드"
+    },
+    "black.body": {
+      "value": "#2E2B27",
+      "name": "블랙냥 바디"
+    },
+    "black.highlight": {
+      "value": "#4A443C",
+      "name": "블랙냥 하이라이트"
+    },
+    "nose": {
+      "value": "#D3A9A7",
+      "name": "코 · 발바닥"
+    },
+    "nose.mono": {
+      "value": "#7A6A55",
+      "name": "코 · 발바닥 모노톤"
+    },
+    "line": {
+      "value": "#16140F",
+      "name": "눈동자 · 외곽선"
+    },
+    "white": {
+      "value": "#F7F3EA",
+      "name": "수염 · 양말 (웜화이트)"
+    }
+  },
+  "forbidden": [
+    "분홍 원색",
+    "파랑 원색",
+    "그린 원색"
+  ]
+}

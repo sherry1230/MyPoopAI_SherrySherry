@@ -1,0 +1,30 @@
+@import '../design/tokens/colors.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 터치 타겟 최소 44px */
+  button,
+  a[role='button'] {
+    min-height: 44px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-state-focus);
+    outline-offset: 2px;
+  }
+}

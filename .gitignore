@@ -1,0 +1,40 @@
+# deps
+node_modules/
+.pnp
+.pnp.js
+
+# build
+dist/
+dist-ssr/
+build/
+*.local
+
+# env / secrets
+.env
+.env.local
+.env.*.local
+serviceAccountKey.json
+firebase-debug.log
+.firebase/
+
+# editor / os
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# test / cache
+coverage/
+.vite/
+*.tsbuildinfo
+
+# 대변 이미지 등 개인 데이터는 절대 커밋 금지
+/private/
+/samples/private/
