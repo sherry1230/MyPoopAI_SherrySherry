@@ -87,3 +87,27 @@
   --radius-modal: 16px;
   --radius-pill: 999px;
 }
+
+/*
+ * 다크 테마 — 레트로 세피아의 야간 버전.
+ * 문서에 다크 시안표가 아직 없어 v0.4 램프(gray/sepia/olive/denim/rose/plum)와
+ * 레트로 포인트 색만 조합해 도출했다. 시안표 확정 시 이 블록만 갱신하면 된다.
+ */
+[data-theme='dark'] {
+  --color-bg-base: #232220; /* 그레이 800 · 다크 기본 배경 */
+  --color-bg-card: #32291C; /* 세피아 800 · 카드 · 박스 배경 */
+  --color-border-default: #45433E; /* 그레이 700 · 구분선 · 비활성 UI */
+  --color-text-placeholder: #918E86; /* 그레이 500 · 플레이스홀더 */
+  --color-text-secondary: #B3B0A8; /* 그레이 400 · 아이콘 · 서브 텍스트 */
+  --color-text-primary: #E6E4DF; /* 그레이 200 · 본문 텍스트 */
+  --color-text-heading: #F5F4F1; /* 그레이 100 · 헤드라인 · 로고 */
+  --color-accent-star: #E3C87E; /* 페이디드 골드 · 유지 */
+  --color-accent-badge: #C9A227; /* 레트로 머스터드 · 유지 */
+  --color-status-good: #9C9A60; /* 올리브 400 · 다크 배경 대비 한 단계 밝게 */
+  --color-status-caution: #C1704A; /* 번트 오렌지 · 유지 */
+  --color-status-warning: #A85B38; /* 러스트 · 다크 배경 대비 한 단계 밝게 */
+  --color-mode-adult: #9AAEBC; /* 데님 300 · 성인 모드 포인트 */
+  --color-mode-baby: #D3A9A7; /* 로즈 300 · 베이비 모드 포인트 */
+  --color-action-link: #9AAEBC; /* 데님 300 · 링크 · 액션 */
+  --color-state-focus: #B99FB8; /* 플럼 300 · 선택 · 포커스 */
+}

@@ -99,3 +99,5 @@ npm run typecheck  # 타입 체크
 - `docs/02-screens.md` — 3탭 화면 상세 스펙
 - `docs/03-data-model.md` — Firestore 구조
 - `docs/04-roadmap.md` — 개발 단계
+- `docs/05-dev-log.md` — 개발 히스토리. **작업을 마칠 때마다 항목을 추가할 것**
+- `docs/06-ai-handoff.md` — 다른 AI와 공유하는 컨텍스트. 구조가 바뀌면 "현재 상태" 갱신

@@ -1,8 +1,11 @@
+import { useTheme } from '@/hooks/useTheme'
+
 /**
  * 탭 3 — 설정
  * 가리기 설정 / 건강 정보 등록 / 다운로드 / 언어 / 로그인 / 약관
  */
 export default function SettingsPage() {
+  const { theme, toggleTheme } = useTheme()
   const rows = [
     ['가리기 설정', '기본값 · 모자이크 or 스티커 · ON/OFF'],
     ['마이 건강 정보', '생년 · 복용약 · 유당불내증'],
@@ -16,6 +19,22 @@ export default function SettingsPage() {
   return (
     <section className="space-y-4">
       <h1 className="text-2xl font-bold text-ink-head">설정</h1>
+
+      <div className="flex items-center justify-between rounded-card border border-line bg-bg-card px-4 py-3">
+        <div>
+          <p className="text-ink">테마</p>
+          <p className="text-xs text-ink-mute">{theme === 'dark' ? '다크' : '라이트'} 모드 사용 중</p>
+        </div>
+        <button
+          type="button"
+          onClick={toggleTheme}
+          className="rounded-pill border border-line px-4 text-sm text-ink"
+          aria-pressed={theme === 'dark'}
+        >
+          {theme === 'dark' ? '라이트로 전환' : '다크로 전환'}
+        </button>
+      </div>
+
       <ul className="divide-y divide-line overflow-hidden rounded-card border border-line bg-bg-card">
         {rows.map(([title, desc]) => (
           <li key={title}>

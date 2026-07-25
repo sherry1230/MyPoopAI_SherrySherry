@@ -11,10 +11,12 @@ build/
 
 # env / secrets
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
 serviceAccountKey.json
+*service-account*.json
 firebase-debug.log
+firestore-debug.log
 .firebase/
 
 # editor / os

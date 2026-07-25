@@ -7,3 +7,5 @@
 | `02-screens.md` | 카메라 / 히스토리 / 설정 3탭 스펙 |
 | `03-data-model.md` | Firestore 구조 · 개인정보 원칙 |
 | `04-roadmap.md` | 개발 단계 · Phase 1 체크리스트 |
+| `05-dev-log.md` | 개발 히스토리 — 날짜별 작업 · 결정 사항 · 다음 할 일 |
+| `06-ai-handoff.md` | AI 핸드오프 — 다른 AI/채팅에 그대로 붙여넣는 프로젝트 컨텍스트 |
