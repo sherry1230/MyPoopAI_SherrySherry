@@ -3,9 +3,10 @@ import { storage } from '@/lib/storage'
 import type { MaskType } from '@/types'
 
 /**
- * 탭 1 — 카메라 (기본 진입)
+ * 탭 1 — 기록 (기본 진입). 촬영과 AI 챗봇 대화가 모두 이 탭에서 일어난다.
  * TODO: WebRTC 스트림 + Canvas 실시간 가리기 연결
- * TODO: 촬영 -> AI 분석 호출 -> 결과(별점/코멘트/추가질문)
+ * TODO: 촬영 -> AI 분석 호출 -> 결과(별점/코멘트)
+ * TODO: 이상 소견 시 추가 질문("오늘 뭐 드셨어요?" 등)은 챗봇 대화 UI로 진행
  */
 export default function CameraPage() {
   const [settings, setSettings] = useState(storage.getSettings())

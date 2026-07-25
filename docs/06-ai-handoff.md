@@ -25,7 +25,8 @@ AI 분석은 Claude Vision API를 **서버(Cloud Functions) 경유**로만 호�
 
 ```
 src/
-  pages/CameraPage.tsx    # 탭1 카메라 — 가리기 토글, 촬영 → AI 분석 → 별점/코멘트
+  pages/CameraPage.tsx    # 탭1 '기록' — 가리기 토글, 촬영 → AI 분석 → 별점/코멘트,
+                          #   이상 소견 시 추가 질문은 챗봇 대화 UI로 진행 (탭 표기는 '기록', 파일명은 CameraPage 유지)
   pages/HistoryPage.tsx   # 탭2 히스토리 — 별점 그래프(7/30일), 캘린더 도트, AI 7일 총평
   pages/SettingsPage.tsx  # 탭3 설정 — 가리기/건강정보/다운로드/언어/로그인 + 테마 토글
   components/             # TabBar(모바일 하단바·데스크톱 사이드내비), StarRating, StatusDot
