@@ -13,7 +13,7 @@
 
 - 모드: 성인(`My 💩`) / 베이비(`My Baby 💩`) — 무료 각 1개
 - 게스트 우선: 로그인 없이 전 기능 동작 (LocalStorage), 로그인은 동기화/백업용
-- 저장소: https://github.com/sherry1230/mypoopai
+- 저장소: https://github.com/sherry1230/MyPoopAI
 
 ## 기술 스택
 

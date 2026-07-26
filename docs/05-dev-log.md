@@ -9,7 +9,8 @@
 
 ### 한 일
 
-- **git 세팅**: remote `origin` → `https://github.com/sherry1230/mypoopai.git` 연결.
+- **git 세팅**: remote `origin` → `https://github.com/sherry1230/MyPoopAI.git` 연결.
+  원격에 있던 2026-04-22 JSX MVP 히스토리는 사용자 결정으로 force push 덮어씀.
   `.gitignore` 보강 (`.env.*` 전체 차단 + `.env.example` 예외, 서비스 계정 키 패턴, `.firebase/`).
 - **Vite + React + PWA**: `vite-plugin-pwa` 활성화 (`registerType: autoUpdate`,
   매니페스트는 기존 `public/manifest.webmanifest` 사용).
