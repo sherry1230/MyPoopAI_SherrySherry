@@ -12,9 +12,16 @@ export default function App() {
   return (
     <div className="min-h-full bg-bg-base text-ink">
       <main className="mx-auto w-full max-w-tablet px-4 pb-24 pt-6 md:max-w-desktop md:px-8 lg:max-w-wide">
-        {tab === 'record' && <RecordPage />}
-        {tab === 'history' && <HistoryPage />}
-        {tab === 'settings' && <SettingsPage />}
+        {/* 탭 전환 시 언마운트하지 않고 숨김 — 채팅 대화·미저장 기록 카드 초안 보존 */}
+        <div hidden={tab !== 'record'}>
+          <RecordPage />
+        </div>
+        <div hidden={tab !== 'history'}>
+          <HistoryPage />
+        </div>
+        <div hidden={tab !== 'settings'}>
+          <SettingsPage />
+        </div>
       </main>
       <TabBar active={tab} onChange={setTab} />
     </div>

@@ -5,6 +5,29 @@
 
 ---
 
+## 2026-07-27 (2) — 기획서 동기화 체계 + 멀티에이전트 리뷰 반영 (Claude Code)
+
+### 한 일
+
+- **기획서 동기화 체계**: 사용자가 CLAUDE.md 개정 (기준 = `docs/gdocs/` 최신 기획서, 현재 **v0.10**).
+  `.claude/commands/sync-docs.md` 명령 신설, 구글닥 폴더 → `docs/gdocs/` 초기 동기화 완료 (3파일).
+  v0.10 신규: 엔티티 캐릭터별 분리 보관(entities.character), 기록 검색 연출("잠깐 기록 좀 볼게냥 📖"),
+  가족 계정 보류 확정. docs/06도 v0.10 기준으로 갱신.
+- **멀티에이전트 리뷰(4관점×반박검증) 확정 결함 15건 수정**:
+  - [high] ChatInput Enter에 한글 IME 조합 가드 없음 → `isComposing` 가드 추가
+  - [high] '저장됨' 칩 bg-badge+text-bg-base 라이트 대비 2.13:1 → bg-ink-head 칩으로 교체
+  - CameraSheet 빠른 전환 토글이 전역 설정을 영구 덮어씀 → 세션 로컬 상태로 변경 (기본값은 설정 탭만)
+  - CameraSheet 접근성: Escape 닫기 + 초기 포커스 + 드래그 릴리즈 오닫힘 가드 (풀 포커스 트랩은 TODO)
+  - 탭 전환 시 채팅/미저장 카드 소실 → App에서 hidden 처리로 상태 보존 (언마운트 안 함)
+  - 별점 수정만 해도 맨 아래로 스크롤 → 메시지 "추가" 시에만 스크롤
+  - StarRating 편집 하한 0.5 → 0 허용 (스펙 0~5)
+  - StatusDot 인라인 HEX → 상태 토큰 클래스 (다크 리매핑 적용)
+  - 캐릭터 배지/안내문구/고지 대비 개선 (모드색은 도트로, ink-mute → ink-soft)
+  - useTheme theme-color 메타 HEX 중복 → `--color-bg-base` 토큰에서 파생
+  - 설정 탭 '로그인' 항목 구정책(카카오) 표기 → 4종+회원탈퇴로 갱신, docs/06 램프 수치 정정
+
+---
+
 ## 2026-07-27 — 기획 대전환 반영: '기록' 채팅이 본체 (Claude Code)
 
 ### 배경

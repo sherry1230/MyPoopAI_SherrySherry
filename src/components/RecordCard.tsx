@@ -26,9 +26,9 @@ export function RecordCard({ record, saved, onScoreChange, onSave }: Props) {
           {record.inputType === 'photo' ? ' · 📷' : ' · 💬'}
         </p>
         {saved ? (
-          <span className="rounded-chip bg-badge px-2 py-0.5 text-xs font-bold text-bg-base">저장됨</span>
+          <span className="rounded-chip bg-ink-head px-2 py-0.5 text-xs font-bold text-bg-base">✓ 저장됨</span>
         ) : (
-          <span className="rounded-chip border border-line px-2 py-0.5 text-xs text-ink-mute">미저장</span>
+          <span className="rounded-chip border border-line px-2 py-0.5 text-xs text-ink-soft">미저장</span>
         )}
       </div>
 
@@ -54,7 +54,7 @@ export function RecordCard({ record, saved, onScoreChange, onSave }: Props) {
         <span className="text-sm font-bold text-ink">{record.score.toFixed(1)}</span>
       </div>
       {!saved && (
-        <p className="mt-1 text-xs text-ink-mute">별을 탭해서 점수를 고칠 수 있어요</p>
+        <p className="mt-1 text-xs text-ink-soft">별을 탭해서 점수를 고칠 수 있어요</p>
       )}
 
       <p className="mt-3 text-[15px] text-ink">{record.comment}</p>

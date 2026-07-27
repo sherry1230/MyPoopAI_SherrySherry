@@ -31,6 +31,8 @@ export function ChatInput({ onSend, onAttach, disabled }: Props) {
         value={text}
         onChange={(e) => setText(e.target.value)}
         onKeyDown={(e) => {
+          // 한글 IME 조합 중 Enter는 무시 — 조기 전송/유령 글자 방지
+          if (e.nativeEvent.isComposing) return
           if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault()
             submit()

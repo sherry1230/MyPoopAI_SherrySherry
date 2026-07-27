@@ -32,12 +32,12 @@ export function StarRating({ score, size = 24, onChange }: Props) {
 
   if (!onChange) return display
 
-  // 별 하나를 좌/우 반으로 쪼개 0.5 단위 입력을 받는다
+  // 별 하나를 좌/우 반으로 쪼개 0.5 단위 입력을 받는다 (맨 왼쪽 밖 탭 = 0점)
   const handleTap = (e: MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const ratio = (e.clientX - rect.left) / rect.width
     const raw = Math.round(ratio * 10) / 2 // 0 ~ 5, 0.5 단위
-    onChange(Math.max(0.5, Math.min(5, raw)))
+    onChange(Math.max(0, Math.min(5, raw)))
   }
 
   return (
@@ -45,11 +45,11 @@ export function StarRating({ score, size = 24, onChange }: Props) {
       onClick={handleTap}
       onKeyDown={(e) => {
         if (e.key === 'ArrowRight') onChange(Math.min(5, score + 0.5))
-        if (e.key === 'ArrowLeft') onChange(Math.max(0.5, score - 0.5))
+        if (e.key === 'ArrowLeft') onChange(Math.max(0, score - 0.5))
       }}
       role="slider"
       aria-label="별점 수정"
-      aria-valuemin={0.5}
+      aria-valuemin={0}
       aria-valuemax={5}
       aria-valuenow={score}
       tabIndex={0}

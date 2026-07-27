@@ -63,9 +63,14 @@ export default function RecordPage() {
   ])
   const [sheetOpen, setSheetOpen] = useState(false)
   const endRef = useRef<HTMLDivElement>(null)
+  const prevCount = useRef(0)
 
+  // 새 말풍선이 "추가"될 때만 맨 아래로 — 별점 수정 같은 갱신에는 스크롤을 건드리지 않는다
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+    if (messages.length > prevCount.current) {
+      endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+    }
+    prevCount.current = messages.length
   }, [messages])
 
   const append = (...items: ChatMessage[]) => setMessages((prev) => [...prev, ...items])
@@ -145,11 +150,11 @@ export default function RecordPage() {
         <h1 className="text-2xl font-bold text-ink-head">
           {settings.mode === 'adult' ? 'My 💩' : 'My Baby 💩'}
         </h1>
-        <span
-          className={`rounded-pill px-3 py-1 text-sm font-bold ${
-            settings.mode === 'adult' ? 'bg-adult' : 'bg-baby'
-          } text-bg-base`}
-        >
+        <span className="flex items-center gap-2 rounded-pill border border-line bg-bg-card px-3 py-1 text-sm font-bold text-ink">
+          <span
+            className={`h-2 w-2 rounded-pill ${settings.mode === 'adult' ? 'bg-adult' : 'bg-baby'}`}
+            aria-hidden
+          />
           {catName}
         </span>
       </header>
@@ -194,7 +199,7 @@ export default function RecordPage() {
 
       <div className="sticky bottom-20 mt-4 bg-bg-base py-2 md:bottom-4">
         <ChatInput onSend={handleSend} onAttach={() => setSheetOpen(true)} />
-        <p className="mt-2 text-center text-xs text-ink-mute">
+        <p className="mt-2 text-center text-xs text-ink-soft">
           의료 상담이 아닌 생활 건강 참고예요 · 걱정되면 병원에 문의하세요
         </p>
       </div>

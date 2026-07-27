@@ -17,10 +17,13 @@ function getInitialTheme(): Theme {
 
 function applyTheme(theme: Theme) {
   document.documentElement.dataset.theme = theme
-  // 모바일 브라우저 주소창 색상도 함께 전환
-  document
-    .querySelector('meta[name="theme-color"]')
-    ?.setAttribute('content', theme === 'dark' ? '#221F1A' : '#F4F0E6')
+  // 모바일 브라우저 주소창 색상도 함께 전환 — 값은 토큰(--color-bg-base)에서 파생 (HEX 중복 금지)
+  const bgBase = getComputedStyle(document.documentElement)
+    .getPropertyValue('--color-bg-base')
+    .trim()
+  if (bgBase) {
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', bgBase)
+  }
 }
 
 /**
