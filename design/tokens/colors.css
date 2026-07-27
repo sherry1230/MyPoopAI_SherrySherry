@@ -86,15 +86,24 @@
   --radius-card: 12px;
   --radius-modal: 16px;
   --radius-pill: 999px;
+
+  /* 채팅 말풍선 (기획서 v0.5 §3.1 라이트 매핑) */
+  --color-chat-cat: #E9E3D4; /* 냥이 말풍선 = 빈티지 크림 */
+  --color-chat-cat-text: #3B362F; /* 잉크 차콜 */
+  --color-chat-user-adult: #C0CDD6; /* 유저 말풍선 (성인) = 데님 200 */
+  --color-chat-user-baby: #E5C9C6; /* 유저 말풍선 (베이비) = 로즈 200 */
+  --color-chat-user-text: #3B362F; /* 잉크 차콜 */
+
+  /* 모달/시트 뒤 딤 처리 — 필름 블랙 60% */
+  --color-overlay: rgba(34, 31, 26, 0.6);
 }
 
 /*
- * 다크 테마 — 레트로 세피아의 야간 버전.
- * 문서에 다크 시안표가 아직 없어 v0.4 램프(gray/sepia/olive/denim/rose/plum)와
- * 레트로 포인트 색만 조합해 도출했다. 시안표 확정 시 이 블록만 갱신하면 된다.
+ * 다크 테마 — 기획서 v0.6 §6.1 토큰 리매핑 시안 기준.
+ * WCAG AA 대비 검증 후 확정 예정 (오픈 이슈). 확정 시 이 블록만 갱신하면 된다.
  */
 [data-theme='dark'] {
-  --color-bg-base: #232220; /* 그레이 800 · 다크 기본 배경 */
+  --color-bg-base: #221F1A; /* 필름 블랙 · 다크 기본 배경 */
   --color-bg-card: #32291C; /* 세피아 800 · 카드 · 박스 배경 */
   --color-border-default: #45433E; /* 그레이 700 · 구분선 · 비활성 UI */
   --color-text-placeholder: #918E86; /* 그레이 500 · 플레이스홀더 */
@@ -110,4 +119,11 @@
   --color-mode-baby: #D3A9A7; /* 로즈 300 · 베이비 모드 포인트 */
   --color-action-link: #9AAEBC; /* 데님 300 · 링크 · 액션 */
   --color-state-focus: #B99FB8; /* 플럼 300 · 선택 · 포커스 */
+
+  /* 채팅 말풍선 (기획서 v0.6 §6.1 다크 매핑) */
+  --color-chat-cat: #32291C; /* 세피아 800 */
+  --color-chat-cat-text: #E6E4DF; /* 그레이 200 */
+  --color-chat-user-adult: #576F82; /* 데님 500 */
+  --color-chat-user-baby: #A06B6E; /* 로즈 500 */
+  --color-chat-user-text: #F7F3EA; /* 웜화이트 */
 }

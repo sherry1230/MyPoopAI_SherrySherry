@@ -34,6 +34,16 @@ export const color = {
   state: {
     focus: '#9D7F9B', // 플럼 400 · 선택 · 포커스
   },
+  /* 채팅 말풍선 (라이트 — 기획서 v0.5 §3.1. 다크 값은 colors.css [data-theme='dark'] 참조) */
+  chat: {
+    cat: '#E9E3D4', // 냥이 말풍선 · 빈티지 크림
+    catText: '#3B362F', // 잉크 차콜
+    userAdult: '#C0CDD6', // 유저 말풍선 (성인) · 데님 200
+    userBaby: '#E5C9C6', // 유저 말풍선 (베이비) · 로즈 200
+    userText: '#3B362F', // 잉크 차콜
+  },
+  /** 모달/시트 뒤 딤 처리 — 필름 블랙 60% */
+  overlay: 'rgba(34, 31, 26, 0.6)',
 } as const
 
 export const ramp = {

@@ -20,7 +20,7 @@ function applyTheme(theme: Theme) {
   // 모바일 브라우저 주소창 색상도 함께 전환
   document
     .querySelector('meta[name="theme-color"]')
-    ?.setAttribute('content', theme === 'dark' ? '#232220' : '#F4F0E6')
+    ?.setAttribute('content', theme === 'dark' ? '#221F1A' : '#F4F0E6')
 }
 
 /**

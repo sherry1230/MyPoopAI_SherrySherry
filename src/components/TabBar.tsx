@@ -1,8 +1,8 @@
-export type TabKey = 'camera' | 'history' | 'settings'
+export type TabKey = 'record' | 'history' | 'settings'
 
-/* 탭1은 촬영 + AI 챗봇 대화(추가 질문)까지 담당하므로 표기는 '기록' */
+/* 탭1 '기록' = 채팅 본체. 카메라는 독립 화면이 아니라 채팅 첨부(+)의 시트 */
 const TABS: { key: TabKey; label: string; icon: string }[] = [
-  { key: 'camera', label: '기록', icon: '📝' },
+  { key: 'record', label: '기록', icon: '💬' },
   { key: 'history', label: '히스토리', icon: '📈' },
   { key: 'settings', label: '설정', icon: '⚙️' },
 ]

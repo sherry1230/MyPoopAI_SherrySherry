@@ -82,6 +82,36 @@
       "value": "#9D7F9B",
       "name": "플럼 400",
       "usage": "선택 · 포커스"
+    },
+    "chat.cat": {
+      "value": "#E9E3D4",
+      "name": "빈티지 크림",
+      "usage": "냥이 말풍선 (라이트)"
+    },
+    "chat.cat.text": {
+      "value": "#3B362F",
+      "name": "잉크 차콜",
+      "usage": "냥이 말풍선 텍스트 (라이트)"
+    },
+    "chat.user.adult": {
+      "value": "#C0CDD6",
+      "name": "데님 200",
+      "usage": "유저 말풍선 · 성인 (라이트)"
+    },
+    "chat.user.baby": {
+      "value": "#E5C9C6",
+      "name": "로즈 200",
+      "usage": "유저 말풍선 · 베이비 (라이트)"
+    },
+    "chat.user.text": {
+      "value": "#3B362F",
+      "name": "잉크 차콜",
+      "usage": "유저 말풍선 텍스트 (라이트)"
+    },
+    "overlay": {
+      "value": "rgba(34, 31, 26, 0.6)",
+      "name": "필름 블랙 60%",
+      "usage": "모달 · 시트 뒤 딤 처리"
     }
   },
   "ramps": {
