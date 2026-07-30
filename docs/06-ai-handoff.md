@@ -154,12 +154,19 @@ docs/00~06                # 00·02·03은 구버전 스펙 — 기획서 v0.9가
 - [기록 저장] 확정 전 저장 · 아픈 똥 드립 · 대화 원문의 analytics/B2B 포함
 - LocalStorage에 기록 저장 (기기 프리퍼런스만 허용)
 
-## 현재 상태 (2026-07-27 기준)
+## 현재 상태 (2026-07-29 기준)
 
 - ✅ Vite+React+Tailwind+PWA 스캐폴드, 디자인 토큰 CSS 변수(라이트+다크), 테마 토글
-- ✅ 기록 탭 채팅 UI (더미 데이터): 말풍선, 입력창+첨부(+), 기록 카드(별점 수정·저장 확정), 카메라 시트
-- ⬜ 미구현: Firebase 익명 인증/linkWithCredential, Cloud Functions+Claude 연동, 실제 카메라
-  WebRTC+가리기, 히스토리 그래프/캘린더/게스트 잠금, 캐릭터 첫만남/전환 로직, 쿼터, 온보딩, i18n
-- 실행: `npm install` → `npm run dev` (검증: `npm run typecheck` + `npm run lint`)
+- ✅ 기록 탭 채팅 UI (더미 파서): 말풍선, 입력창+첨부(+), 기록 카드(별점 수정·저장 확정), 카메라 시트
+- ✅ **인증**: 진입 시 익명 게스트 자동 생성(`src/lib/auth.ts` initAuth), Google/이메일 전환은
+  linkWithCredential(uid 유지·기록 승계), 이메일 인증 메일 필수+"메일 인증 대기" 배지, Apple 자리만,
+  전 계정 2단계 회원탈퇴(Firestore users/records/chats + Storage users/{uid} 삭제 → deleteUser)
+- ✅ **기록 저장 Firestore 전환**(`src/lib/records.ts`, 게스트=익명 uid) — storage.ts는 설정·온보딩만
+- ✅ 히스토리 게스트 잠금 화면("기록이 N개 쌓였어요 🔒" + 가입 버튼), 회원이면 Firestore 기록 렌더
+- ✅ firestore.rules/storage.rules(본인만 접근) + 에뮬레이터 연결(VITE_USE_FIREBASE_EMULATOR)
+- ⬜ 미구현: Cloud Functions+Claude 연동(더미 파서 대체), 실제 카메라 WebRTC+가리기,
+  히스토리 그래프/캘린더, 캐릭터 첫만남/전환 서버 로직, 쿼터 카운트, 온보딩, i18n, Apple 로그인
+- 실행: `npm install` → `.env` 세팅(.env.example 참조) → `npm run dev`.
+  Firebase 없이도 게스트 로컬 모드로 뜬다 (인증·저장만 비활성)
 
 상세 이력은 `docs/05-dev-log.md`, 제품 상세는 구글닥 기획서 v0.9 참조.

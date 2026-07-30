@@ -5,6 +5,61 @@
 
 ---
 
+## 2026-07-29 — Firebase 인증 + 기록 Firestore 전환 (Claude Code)
+
+### 한 일
+
+- **src/lib/auth.ts 신규**: 앱 진입 시 `initAuth()` — 유저 없으면 `signInAnonymously`로 게스트 uid
+  자동 생성 (로그아웃/탈퇴 후에도 자동으로 새 게스트). AuthError 코드 매핑으로 UI 분기.
+- **게스트→가입 = linkWithCredential 원칙 구현**: Google은 `linkWithPopup`, 이메일은
+  `EmailAuthProvider.credential` + `linkWithCredential` — uid 유지, 기록 그대로 승계.
+  이미 가입된 Google 계정(credential-already-in-use)이면 "기록 미승계" 경고 확인 후에만 기존 계정 로그인.
+- **이메일 가입**: `sendEmailVerification` 필수. 미인증 시 설정 탭에 "메일 인증 대기" 배지 +
+  재발송/인증 완료 확인 버튼. Apple 버튼은 자리만(비활성, 준비 중).
+- **회원탈퇴 (전 계정, 게스트 포함)**: 설정 최하단, 2단계 확인 →
+  Firestore 본인 데이터(users/{uid}, records, chats) 삭제 → Storage users/{uid}/ 재귀 삭제 → `deleteUser`.
+- **히스토리 게스트 잠금**: 익명이면 "기록이 N개 쌓였어요 🔒" (Firestore count 쿼리) + [가입하고 열람하기]
+  → 설정 탭 이동. 회원이면 Firestore에서 본인 기록 조회 렌더.
+- **기록 저장 Firestore 전환**: `src/lib/records.ts` 신규 — [기록 저장] 확정 시 records 컬렉션에
+  userId(익명 uid 포함) + serverTimestamp로 저장. storage.ts에서 records API 삭제 (설정·온보딩 전용).
+- **보안 규칙 초안**: firestore.rules(본인 문서만, analytics 클라 접근 금지) + storage.rules(users/{uid}/만).
+- **에뮬레이터**: firebase.json(auth 9099/firestore 8080/storage 9199/UI 4000),
+  `VITE_USE_FIREBASE_EMULATOR=true`면 자동 연결.
+- Firebase 미설정(.env 없음) 환경 방어: 전 기능 no-op/비활성, 앱은 게스트 로컬 모드로 정상 구동
+  (브라우저 검증: 잠금 화면·설정 비활성·콘솔 무에러).
+
+### 결정 사항
+
+- records는 top-level 컬렉션 + userId 필드 (기획서 v0.5~ 스키마). 조회는 where(userId==)만 쓰고
+  정렬은 클라이언트에서 — 복합 색인 없이 동작.
+- 기존 회원 로그인(링크 아님)은 게스트 기록 미승계를 UI에 명시 고지.
+- 탈퇴 시 데이터 삭제를 deleteUser보다 먼저 실행 (계정이 먼저 지워지면 데이터 삭제 주체가 사라짐).
+  소셜 재인증 필요(requires-recent-login) 시 안내 후 재시도 유도.
+
+### 멀티에이전트 리뷰(4관점×반박검증) 확정 결함 반영 — 중복 제거 후 8건
+
+- [high] **탈퇴 순서 결함**: 데이터 선삭제 후 deleteUser가 requires-recent-login(로그인 5분 경과 시
+  사실상 기본)으로 실패하면 "데이터만 사라지고 계정은 잔존" → **재인증을 데이터 삭제보다 먼저**로 수정
+  (Google=팝업 재인증, 이메일=비밀번호 재인증 입력칸, 익명=만료 시 로그아웃 폴백)
+- [high] 히스토리 1회성 페치로 세션 중 저장 기록 미반영 → 탭 활성화(active prop)마다 리페치 +
+  계정 전환 시 이전 상태 폐기 + 경합 취소 가드
+- [기록 저장] 더블탭 중복 문서 생성 → savingIds 가드 + "저장 중…" 비활성
+- firestore.rules update가 userId 재할당(타인 히스토리에 기록 심기) 허용 → 재할당 금지 조건 추가
+- signUpWithEmail: 링크 성공 후 메일 발송 실패를 가입 실패처럼 보고 → 분리 (verificationSent 반환),
+  익명 로그인 미준비 상태 에러 문구 정정
+- signInWithExistingGoogle: raw Firebase 에러 노출 + stale credential 미정리 → toAuthError + finally 정리
+- 저장 실패 시 SDK 영문 에러가 채팅에 노출 → 한국어 일반 문구로 대체
+- 문구: 입력창 하단 고지를 "의료 상담이 아닌 배변 기록용이에요."로 변경 (사용자 지시)
+
+### 다음 할 일
+
+- [ ] Firebase 콘솔에서 익명/Google/이메일 로그인 활성화 (사용자)
+- [ ] .env 세팅 후 실기기/에뮬레이터 검증, users/{uid} 문서 생성(테마·캐릭터 동기화)
+- [ ] Apple 로그인 (Developer Program 등록 후)
+- [ ] Cloud Functions + Claude 연동 (더미 파서 대체)
+
+---
+
 ## 2026-07-27 (2) — 기획서 동기화 체계 + 멀티에이전트 리뷰 반영 (Claude Code)
 
 ### 한 일

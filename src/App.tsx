@@ -1,13 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import RecordPage from './pages/RecordPage'
 import HistoryPage from './pages/HistoryPage'
 import SettingsPage from './pages/SettingsPage'
 import { TabBar, type TabKey } from './components/TabBar'
 import { useTheme } from './hooks/useTheme'
+import { initAuth } from './lib/auth'
 
 export default function App() {
   const [tab, setTab] = useState<TabKey>('record')
   useTheme() // 앱 진입 시 저장된 테마(라이트/다크)를 <html data-theme> 에 적용
+  useEffect(() => {
+    initAuth() // 최초 진입 시 익명 게스트 uid 자동 생성 (Firebase 미설정이면 no-op)
+  }, [])
 
   return (
     <div className="min-h-full bg-bg-base text-ink">
@@ -17,7 +21,7 @@ export default function App() {
           <RecordPage />
         </div>
         <div hidden={tab !== 'history'}>
-          <HistoryPage />
+          <HistoryPage onGoSettings={() => setTab('settings')} active={tab === 'history'} />
         </div>
         <div hidden={tab !== 'settings'}>
           <SettingsPage />

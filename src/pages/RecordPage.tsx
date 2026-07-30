@@ -4,6 +4,7 @@ import { ChatInput } from '@/components/ChatInput'
 import { RecordCard } from '@/components/RecordCard'
 import { CameraSheet } from '@/components/CameraSheet'
 import { storage } from '@/lib/storage'
+import { saveRecord } from '@/lib/records'
 import type { ChatMessage, PoopMode, PoopRecord } from '@/types'
 
 const CHARACTER_NAME = { pupu: '푸푸', pipi: '피피' } as const
@@ -62,6 +63,7 @@ export default function RecordPage() {
     },
   ])
   const [sheetOpen, setSheetOpen] = useState(false)
+  const [savingIds, setSavingIds] = useState<Set<string>>(new Set())
   const endRef = useRef<HTMLDivElement>(null)
   const prevCount = useRef(0)
 
@@ -132,16 +134,37 @@ export default function RecordPage() {
     })
   }
 
-  const handleSave = (message: ChatMessage) => {
-    // TODO: Firestore 저장 (게스트 포함 익명 uid로 서버 저장). LocalStorage 기록 정책은 폐기됨.
-    updateRecord(message.id, { saved: true })
-    append({
-      id: nextId(),
-      role: 'cat',
-      kind: 'text',
-      text: '저장 완료! 히스토리에서 흐름을 볼 수 있어.',
-      createdAt: new Date().toISOString(),
-    })
+  const handleSave = async (message: ChatMessage) => {
+    if (!message.record || savingIds.has(message.id)) return
+    setSavingIds((prev) => new Set(prev).add(message.id))
+    try {
+      // 게스트 포함 익명 uid로 Firestore에 저장 — [기록 저장] 확정 시에만
+      await saveRecord(message.record)
+      updateRecord(message.id, { saved: true })
+      append({
+        id: nextId(),
+        role: 'cat',
+        kind: 'text',
+        text: '저장 완료! 히스토리에서 흐름을 볼 수 있어.',
+        createdAt: new Date().toISOString(),
+      })
+    } catch (e) {
+      // 우리가 만든 한국어 안내만 그대로 노출, SDK 원문(영문)은 일반 문구로 대체
+      const known = e instanceof Error && /미설정|로그인/.test(e.message)
+      append({
+        id: nextId(),
+        role: 'cat',
+        kind: 'text',
+        text: `저장에 실패했어 😿 ${known ? (e as Error).message : '네트워크나 서버 문제일 수 있어. 잠시 후 다시 시도해 줘.'}`,
+        createdAt: new Date().toISOString(),
+      })
+    } finally {
+      setSavingIds((prev) => {
+        const next = new Set(prev)
+        next.delete(message.id)
+        return next
+      })
+    }
   }
 
   return (
@@ -169,6 +192,7 @@ export default function RecordPage() {
                 key={m.id}
                 record={m.record}
                 saved={Boolean(m.saved)}
+                saving={savingIds.has(m.id)}
                 onScoreChange={(score) => handleScoreChange(m, score)}
                 onSave={() => handleSave(m)}
               />
@@ -200,7 +224,7 @@ export default function RecordPage() {
       <div className="sticky bottom-20 mt-4 bg-bg-base py-2 md:bottom-4">
         <ChatInput onSend={handleSend} onAttach={() => setSheetOpen(true)} />
         <p className="mt-2 text-center text-xs text-ink-soft">
-          의료 상담이 아닌 생활 건강 참고예요 · 걱정되면 병원에 문의하세요
+          의료 상담이 아닌 배변 기록용이에요.
         </p>
       </div>
 

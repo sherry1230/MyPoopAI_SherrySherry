@@ -5,6 +5,8 @@ import type { PoopRecord } from '@/types'
 interface Props {
   record: PoopRecord
   saved: boolean
+  /** 저장 요청 진행 중 — 더블탭 중복 저장 방지 */
+  saving?: boolean
   onScoreChange: (score: number) => void
   onSave: () => void
 }
@@ -14,7 +16,7 @@ interface Props {
  * AI 제안 별점이 미리 채워지고 유저가 수정 가능(0~5 · 0.5단위).
  * [기록 저장]을 누르기 전에는 저장되지 않는다 — 농담·회상이 기록을 오염시키지 않게.
  */
-export function RecordCard({ record, saved, onScoreChange, onSave }: Props) {
+export function RecordCard({ record, saved, saving, onScoreChange, onSave }: Props) {
   const occurred = record.occurredAt ?? record.recordedAt
 
   return (
@@ -63,9 +65,10 @@ export function RecordCard({ record, saved, onScoreChange, onSave }: Props) {
         <button
           type="button"
           onClick={onSave}
-          className="mt-4 w-full rounded-pill bg-ink-head py-2.5 text-sm font-bold text-bg-base"
+          disabled={saving}
+          className="mt-4 w-full rounded-pill bg-ink-head py-2.5 text-sm font-bold text-bg-base disabled:opacity-40"
         >
-          기록 저장
+          {saving ? '저장 중…' : '기록 저장'}
         </button>
       )}
     </div>
