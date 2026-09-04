@@ -90,7 +90,7 @@ npm run typecheck  # 타입 체크
 이 저장소는 두 클로드 코드 인스턴스가 공유한다. 세션 시작 시 `git pull`, 작업 종료 시 커밋·push 필수.
 
 - **쉐리쉐리(맥북)** — 로컬 폴더명 `MyPoop_SherrySherry/`, 형제 폴더 `HaemaAI_SherrySherry/`
-- **야옹1230(윈도우 데스크탑)** — 로컬 폴더명 `MyPoop_Yaong1230/`, 형제 폴더 `HaemaAI_Yaong1230/`
+- **야옹1230(윈도우 데스크탑, 프론트엔드 담당)** — 로컬 폴더명 `MyPoop_Yaong1230/`, 형제 폴더 `HaemaAI_Yaong1230/`
   (리포는 동일, 폴더명만 다름)
 - `docs/05-dev-log.md` 기록 시 작업 주체를 자기 인스턴스 이름(**쉐리쉐리** / **야옹1230**)으로 표기할 것.
 
