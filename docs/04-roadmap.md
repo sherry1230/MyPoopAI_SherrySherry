@@ -70,6 +70,8 @@
 - [x] 기록 탭 채팅 UI (더미 파서 — 말풍선 · 기록 카드 · 카메라 시트)
 - [x] Firebase 익명 인증 + linkWithCredential 전환 + 회원탈퇴
 - [x] 기록 저장 Firestore 전환 + 히스토리 게스트 잠금
+- [ ] **게스트 기록 클라이언트 저장 전환** (9/4 확정: 게스트=클라이언트 / 회원=Firestore 동기화)
+- [ ] **재방문 진입 시 카메라 자동 오픈** (로그인 + 채팅 기록 있으면 CameraSheet부터, 초기 1회는 채팅 온보딩)
 - [ ] Cloud Functions + Claude 연동 (더미 파서 대체, 2단 파이프라인)
 - [ ] 5-Brain 조립기 + 프롬프트 외부 파일 분리 (/prompts/)
 - [ ] src/lib/memory.ts — Haema 인터페이스 타입 + 목 구현
