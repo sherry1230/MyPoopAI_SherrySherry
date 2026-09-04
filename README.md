@@ -1,7 +1,8 @@
 # MyPoopAI (마이풉)
 
-> AI 기반 대변 건강 분석 모바일 웹앱. 사용자가 대변을 직접 보지 않아도 AI가 분석해준다.
-> 카메라에서 변기/기저귀를 인식해 자동으로 모자이크 또는 캐릭터 스티커로 가린다.
+> 고양이 캐릭터(피피·푸푸)와 **채팅으로 배변·배뇨를 기록**하는 AI 건강 기록 반응형 웹앱(PWA).
+> 채팅이 곧 앱이다 — 텍스트 기록이 기본, 이미지는 SMS처럼 선택 첨부.
+> 카메라·업로드 이미지는 변기/기저귀를 인식해 화면에 뜨기 전에 모자이크/스티커로 가린다(기본 ON).
 
 - 도메인: `mypoopai.com` / `baby.mypoopai.com`
 - 모드: 성인(My 💩) / 베이비(My Baby 💩)
@@ -26,10 +27,10 @@ npm run dev
 ## 폴더 구조
 
 ```
-docs/            기획 문서 (제품 개요, 화면, 데이터 모델, 로드맵)
+docs/            기획 요약 문서 (docs/gdocs/ = 구글닥 기획서 원본 사본, 읽기 전용)
 design/tokens/   디자인 토큰 (colors.json / colors.css / colors.ts)
 design/exports/  피그마 export 에셋
-src/pages/       카메라 · 히스토리 · 설정 3탭
+src/pages/       기록(채팅) · 히스토리 · 설정 3탭
 src/components/  공통 UI 컴포넌트
 src/lib/         firebase, storage, ai 등 인프라
 src/types/       공용 타입
@@ -39,7 +40,8 @@ public/          PWA manifest, 아이콘
 ## 디자인
 
 - Figma: https://www.figma.com/design/VuNgxrdndIy5cFRwg17UCK/mypoopai
-- 컬러 시스템 v0.4 (레트로 세피아 · 페이퍼 아이보리). 자세한 내용은 `docs/01-design-system-v0.4.md`
+- 컬러 시스템: v0.4 레트로 세피아(코드 현행) + **v0.5 오로라·뉴트로 확정(기획서 9/4판, 반영 대기)**.
+  자세한 내용은 `docs/01-design-system-v0.4.md`
 - 코드에서는 반드시 `design/tokens/colors.ts`의 시맨틱 토큰을 쓴다. HEX 하드코딩 금지.
 
 ## 개인정보 원칙
